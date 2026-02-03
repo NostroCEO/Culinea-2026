@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Utensils, ShoppingCart, User } from "lucide-react-native";
+import { Home, Utensils, ShoppingCart, MessageCircle } from "lucide-react-native";
 import { useTheme } from "@/utils/theme";
 
 export default function TabLayout() {
@@ -26,6 +26,15 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
+        name="home"
+        options={{
+          title: "Today",
+          tabBarIcon: ({ color, size }) => (
+            <Home color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="plan"
         options={{
           title: "Meal Plan",
@@ -37,7 +46,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="grocery"
         options={{
-          title: "Groceries",
+          title: "Grocery List",
           tabBarIcon: ({ color, size }) => (
             <ShoppingCart color={color} size={size} />
           ),
@@ -46,8 +55,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
-          tabBarIcon: ({ color, size }) => <User color={color} size={size} />,
+          title: "Chat",
+          tabBarIcon: ({ color, size }) => <MessageCircle color={color} size={size} />,
         }}
       />
     </Tabs>
